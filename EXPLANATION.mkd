@@ -60,9 +60,9 @@ You can create however many simulations as you want.
 
 For example, say you went with 3:
 
-1.	*Future One*
-2.	*Future Two*
-3.	*Future Three*
+1.	(Future One)
+2.	(Future Two)
+3.	(Future Three)
 
 #### Add a task list to each simulation ####
 
@@ -72,20 +72,20 @@ For example:
 
 1.	Future One:
 
-	*	*Task A 2*
-	*	*Task B 8*
-	*	*Task C 3*
+	*	(Task A 2)
+	*	(Task B 8)
+	*	(Task C 3)
 
-2.	Future *Two:
+2.	Future Two:
 
-	*	*Task A 2*
-	*	*Task B 8*
-	*	*Task C 3*
-3.	Future *Three:
+	*	(Task A 2)
+	*	(Task B 8)
+	*	(Task C 3)
+3.	Future Three:
 
-	*	*Task A 2*
-	*	*Task B 8*
-	*	*Task C 3*
+	*	(Task A 2)
+	*	(Task B 8)
+	*	(Task C 3)
 
 #### Randomly select a velocity from past performance for each task ###
 
@@ -97,21 +97,21 @@ For example:
 
 1.	Future One:
 
-	*	Task A 2 *0.2*
-	*	Task B 8 *0.7*
-	*	Task C 3 *1.1*
+	*	Task A 2 (0.2)
+	*	Task B 8 (0.7)
+	*	Task C 3 (1.1)
 
 2.	Future Two:
 
-	*	Task A 2 *2*
-	*	Task B 8 *0.7*
-	*	Task C 3 *0.3*
+	*	Task A 2 (2)
+	*	Task B 8 (0.7)
+	*	Task C 3 (0.3)
 
 3.	Future Three:
 
-	*	Task A 2 *0.5*
-	*	Task B 8 *0.7*
-	*	Task C 3 *0.3*
+	*	Task A 2 (0.5)
+	*	Task B 8 (0.7)
+	*	Task C 3 (0.3)
 
 #### Estimate the actual completion time for each task ####
 
@@ -121,21 +121,21 @@ For example:
 
 1.	Future One:
 
-	*	Task A 2 0.2 *10*
-	*	Task B 8 0.7 *11.4*
-	*	Task C 3 1.1 *2.7*
+	*	Task A 2 0.2 (10)
+	*	Task B 8 0.7 (11.4)
+	*	Task C 3 1.1 (2.7)
 
 2.	Future Two:
 
-	*	Task A 2 2 *1*
-	*	Task B 8 0.7 *11.4*
-	*	Task C 3 0.3 *10*
+	*	Task A 2 2 (1)
+	*	Task B 8 0.7 (11.4)
+	*	Task C 3 0.3 (10)
 
 3.	Future Three:
 
-	*	Task A 2 0.5 *4*
-	*	Task B 8 0.7 *11.4*
-	*	Task C 3 0.3 *10*
+	*	Task A 2 0.5 (4)
+	*	Task B 8 0.7 (11.4)
+	*	Task C 3 0.3 (10)
 
 #### Calculate the total time to completion for each simulation ####
 
@@ -148,21 +148,21 @@ For example:
 	*	Task A 2 0.2 10
 	*	Task B 8 0.7 11.4
 	*	Task C 3 1.1 2.7
-	*	Total = *24.1*
+	*	Total = (24.1)
 
 2.	Future Two:
 
 	*	Task A 2 2 1
 	*	Task B 8 0.7 11.4
 	*	Task C 3 0.3 10
-	*	Total = *23.5*
+	*	Total = (23.5)
 
 3.	Future Three:
 
 	*	Task A 2 0.5 4
 	*	Task B 8 0.7 11.4
 	*	Task C 3 0.3 10
-	*	Total = *25.4*
+	*	Total = (25.4)
 
 #### Calculate the 95%, the 50%, and the 5% probability dates.
 
