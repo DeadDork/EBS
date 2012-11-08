@@ -7,6 +7,7 @@ Background
 ----------
 
 My first job as a programmer was a first in many ways. The two main ones:
+
 *	It was the first time I ever wrote a program for someone else.
 *	It was the first time my boss ever had someone write a program for him.
 
@@ -31,6 +32,7 @@ Method
 Break the project into clearly-defined tasks, each of which can take no longer than 16 hours to complete. That way, all of what the project entails is understood--which is the least that is needed to make a minimally realistic schedule.
 
 That is:
+
 *	Break a project into well-defined tasks.
 *	Make sure each task is one that is estimated to take no longer than 16 hours.
 *	Estimate the completion date for that task (e.g. "Build interactive BASH menu to record tasks and their estimated time of completion", "3").
@@ -40,6 +42,7 @@ That is:
 Begin working on tasks, and record how long each took to complete.
 
 That is:
+
 *	Note the time, then begin working on the task.
 *	Finish the task, then note the time again--*regardless of lunch breaks, sleep breaks, loquacious coworkers, etc.*
 
@@ -56,6 +59,7 @@ A possible future, or a simulation, should be understood as a possible time-line
 You can create however many simulations as you want.
 
 For example, say you went with 3:
+
 1.	*Future One*
 2.	*Future Two*
 3.	*Future Three*
@@ -65,15 +69,20 @@ For example, say you went with 3:
 Each simulation shares the same set of tasks, and each task shares with the self-same task in each other simulation the estimated time of completion.
 
 For example: 
+
 1.	Future One:
+
 	*	*Task A 2*
 	*	*Task B 8*
 	*	*Task C 3*
+
 2.	Future *Two:
+
 	*	*Task A 2*
 	*	*Task B 8*
 	*	*Task C 3*
 3.	Future *Three:
+
 	*	*Task A 2*
 	*	*Task B 8*
 	*	*Task C 3*
@@ -85,15 +94,21 @@ Supposedly, you have been recording your estimated time of completion & the actu
 Randomly select velocities determined in the set of past performance data, and assign each to a task in every simulation.
 
 For example:
+
 1.	Future One:
+
 	*	Task A 2 *0.2*
 	*	Task B 8 *0.7*
 	*	Task C 3 *1.1*
+
 2.	Future Two:
+
 	*	Task A 2 *2*
 	*	Task B 8 *0.7*
 	*	Task C 3 *0.3*
+
 3.	Future Three:
+
 	*	Task A 2 *0.5*
 	*	Task B 8 *0.7*
 	*	Task C 3 *0.3*
@@ -103,15 +118,21 @@ For example:
 Divide the estimated time of completion for each task by the randomly selected velocity to get a possible actual completion time.
 
 For example:
+
 1.	Future One:
+
 	*	Task A 2 0.2 *10*
 	*	Task B 8 0.7 *11.4*
 	*	Task C 3 1.1 *2.7*
+
 2.	Future Two:
+
 	*	Task A 2 2 *1*
 	*	Task B 8 0.7 *11.4*
 	*	Task C 3 0.3 *10*
+
 3.	Future Three:
+
 	*	Task A 2 0.5 *4*
 	*	Task B 8 0.7 *11.4*
 	*	Task C 3 0.3 *10*
@@ -121,17 +142,23 @@ For example:
 Add the tasks together for each simulation to get the completion date for each.
 
 For example:
+
 1.	Future One:
+
 	*	Task A 2 0.2 10
 	*	Task B 8 0.7 11.4
 	*	Task C 3 1.1 2.7
 	*	Total = *24.1*
+
 2.	Future Two:
+
 	*	Task A 2 2 1
 	*	Task B 8 0.7 11.4
 	*	Task C 3 0.3 10
 	*	Total = *23.5*
+
 3.	Future Three:
+
 	*	Task A 2 0.5 4
 	*	Task B 8 0.7 11.4
 	*	Task C 3 0.3 10
@@ -142,6 +169,7 @@ For example:
 Finally, use the Monte Carlo method to get different confidence probabilities for certain project completion dates.
 
 Let's assume that you've done a model with 20 simulations, with the total hours as follows:
+
 1.	17
 2.	50
 3.	112
