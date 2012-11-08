@@ -1,0 +1,174 @@
+EBS
+===
+
+Evidence Based Scheduling (demo).
+
+Background
+----------
+
+My first job as a programmer was a first in many ways. The two main ones:
+*	It was the first time I ever wrote a program for someone else.
+*	It was the first time my boss ever had someone write a program for him.
+
+...There was a lot of arm-waving, both explanatory and frantic...
+
+Anyway, one of the biggest issues I had was with scheduling. Boss-man would ask me when I thought a particular project would be done. I, not knowing any better, would do some gut-arithmetic and guess. Inevitably, it would take 4 times as long.
+
+Finally, I asked some programming buddies of mine how they dealt with the scheduling problem. Most of them laughed and laughed. One was even kind enough to quote me [Hofstadter's Law](http://en.wikipedia.org/wiki/Hofstadter%27s_law).
+
+Thankfully, one of them did take me seriously enough to tell me about [EBS](http://www.joelonsoftware.com/items/2007/10/26.html).
+
+Philosophy
+----------
+
+The basic idea is to break a project down to small tasks, each of which cannot take longer than 16 hours to complete, and use the developer's past performance with respect to completing these tasks to model the deadlines for the project.
+
+Method
+------
+
+### Break 'er Down ###
+
+Break the project into clearly-defined tasks, each of which can take no longer than 16 hours to complete. That way, all of what the project entails is understood--which is the least that is needed to make a minimally realistic schedule.
+
+That is:
+*	Break a project into well-defined tasks.
+*	Make sure each task is one that is estimated to take no longer than 16 hours.
+*	Estimate the completion date for that task (e.g. "Build interactive BASH menu to record tasks and their estimated time of completion", "3").
+
+### Track Elapsed Time ###
+
+Begin working on tasks, and record how long each took to complete.
+
+That is:
+*	Note the time, then begin working on the task.
+*	Finish the task, then note the time again--*regardless of lunch breaks, sleep breaks, loquacious coworkers, etc.*
+
+For example: "Build interactive BASH menu to record tasks and their estimated time of completion", "3", "7".
+
+### Simulate the Future ###
+
+You create a Monte Carlo model of the probable ship dates. This is a bit complicated, so let's break it down a bit.
+
+#### Create a set of possible futures ####
+
+A possible future, or a simulation, should be understood as a possible time-line for a project. Accordingly, each simulation will be broken down into a set of tasks, each of which has an estimated completion time. One example of a simulation is your fairy-tale best guess of how long a project is going to take.
+
+You can create however many simulations as you want.
+
+For example, say you went with 3:
+1.	*Future One*
+2.	*Future Two*
+3.	*Future Three*
+
+#### Add a task list to each simulation ####
+
+Each simulation shares the same set of tasks, and each task shares with the self-same task in each other simulation the estimated time of completion.
+
+For example: 
+1.	Future One:
+	*	*Task A 2*
+	*	*Task B 8*
+	*	*Task C 3*
+2.	Future *Two:
+	*	*Task A 2*
+	*	*Task B 8*
+	*	*Task C 3*
+3.	Future *Three:
+	*	*Task A 2*
+	*	*Task B 8*
+	*	*Task C 3*
+
+#### Randomly select a velocity from past performance for each task ###
+
+Supposedly, you have been recording your estimated time of completion & the actual time of completion for tasks, and for several months, so you have a big ol' data set. If you divide the estimated task time by the actual time it took to finish the task, you get how fast the task was completed relative to how fast it was estimated to take, aka the task's velocity.
+
+Randomly select velocities determined in the set of past performance data, and assign each to a task in every simulation.
+
+For example:
+1.	Future One:
+	*	Task A 2 *0.2*
+	*	Task B 8 *0.7*
+	*	Task C 3 *1.1*
+2.	Future Two:
+	*	Task A 2 *2*
+	*	Task B 8 *0.7*
+	*	Task C 3 *0.3*
+3.	Future Three:
+	*	Task A 2 *0.5*
+	*	Task B 8 *0.7*
+	*	Task C 3 *0.3*
+
+#### Estimate the actual completion time for each task ####
+
+Divide the estimated time of completion for each task by the randomly selected velocity to get a possible actual completion time.
+
+For example:
+1.	Future One:
+	*	Task A 2 0.2 *10*
+	*	Task B 8 0.7 *11.4*
+	*	Task C 3 1.1 *2.7*
+2.	Future Two:
+	*	Task A 2 2 *1*
+	*	Task B 8 0.7 *11.4*
+	*	Task C 3 0.3 *10*
+3.	Future Three:
+	*	Task A 2 0.5 *4*
+	*	Task B 8 0.7 *11.4*
+	*	Task C 3 0.3 *10*
+
+#### Calculate the total time to completion for each simulation ####
+
+Add the tasks together for each simulation to get the completion date for each.
+
+For example:
+1.	Future One:
+	*	Task A 2 0.2 10
+	*	Task B 8 0.7 11.4
+	*	Task C 3 1.1 2.7
+	*	Total = *24.1*
+2.	Future Two:
+	*	Task A 2 2 1
+	*	Task B 8 0.7 11.4
+	*	Task C 3 0.3 10
+	*	Total = *23.5*
+3.	Future Three:
+	*	Task A 2 0.5 4
+	*	Task B 8 0.7 11.4
+	*	Task C 3 0.3 10
+	*	Total = *25.4*
+
+#### Calculate the 95%, the 50%, and the 5% probability dates.
+
+Finally, use the Monte Carlo method to get different confidence probabilities for certain project completion dates.
+
+Let's assume that you've done a model with 20 simulations, with the total hours as follows:
+1.	17
+2.	50
+3.	112
+4.	123
+5.	78
+6.	37
+7.	56
+8.	98
+9.	81
+10.	66
+11.	78
+12.	101
+13.	35
+14.	53
+15.	89
+16.	94
+17.	43
+18.	57
+19.	52
+20.	77
+
+95% of the simulations fall on or behind 112 hours; 50% of simulations fall on or behind 66 hours; 5% fall on or behind 17 hours.
+
+(What this model tells you is that the programmer at hand absolutely sucks at estimating how long something takes, in either direction. In other words, that there is a good chance that the estimated deadline is not going to be what you think it will be.)
+
+#### Notes about getting more accurate predictions ####
+
+The more simulations you run, the more accurate the prediction. For one, outlier simulations will be blunted.
+
+Further, the more tasks there are for each deadline, the more similar the total hours for all simulations will be, as the chance of a bunch of similarly leaning outlier estimations falling in the same simulation becomes lower and lower.
