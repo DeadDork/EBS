@@ -15,21 +15,21 @@ My first job as a programmer was a first in many ways. The two main ones:
 
 Anyway, one of the biggest issues I had was with scheduling. Boss-man would ask me when I thought a particular project would be done. I, not knowing any better, would do some gut-arithmetic and guess. Inevitably, it would take 4 times as long.
 
-Finally, I asked some programming buddies of mine how they dealt with the scheduling problem. Most of them laughed and laughed. One was even kind enough to quote me [Hofstadter's Law](http://en.wikipedia.org/wiki/Hofstadter%27s_law).
+Finally, I asked some programming buddies of mine how they dealt with the scheduling problem. Most of them laughed and laughed. A couple were even kind enough to quote me [Hofstadter's Law](http://en.wikipedia.org/wiki/Hofstadter%27s_law).
 
 Thankfully, one of them did take me seriously enough to tell me about [EBS](http://www.joelonsoftware.com/items/2007/10/26.html).
 
 Philosophy
 ----------
 
-The basic idea is to break a project down to small tasks, each of which cannot take longer than 16 hours to complete, and use the developer's past performance with respect to completing these tasks to model the deadlines for the project.
+The basic idea is to break a project down into constitutive small tasks, each of which cannot take longer than 16 hours to complete, and use the developer's past performance with respect to completing these sorts of tasks to forecast accurately the deadline for any given project.
 
 Method
 ------
 
 ### Break 'er Down ###
 
-Break the project into clearly-defined tasks, each of which can take no longer than 16 hours to complete. That way, all of what the project entails is understood--which is the least that is needed to make a minimally realistic schedule.
+Break a project into clearly-defined tasks, each of which can take no longer than 16 hours to complete. That way, all of what the project entails is understood--which is the least that is needed to make a minimally realistic schedule.
 
 That is:
 
@@ -39,7 +39,7 @@ That is:
 
 ### Track Elapsed Time ###
 
-Begin working on tasks, and record how long each took to complete.
+Begin working on tasks, and record how long each takes to complete.
 
 That is:
 
@@ -50,7 +50,7 @@ For example: "Build interactive BASH menu to record tasks and their estimated ti
 
 ### Simulate the Future ###
 
-You create a Monte Carlo model of the probable ship dates. This is a bit complicated, so let's break it down a bit.
+Create a Monte Carlo model of the probable project completion dates. This is a bit complicated, so I'm going to break it down a bit.
 
 #### Create a set of possible futures ####
 
@@ -58,7 +58,7 @@ A possible future, or a simulation, should be understood as a possible time-line
 
 You can create however many simulations as you want.
 
-For example, say you went with 3:
+For example, say you went with 3 simulations:
 
 1.	(Future One)
 2.	(Future Two)
@@ -81,6 +81,7 @@ For example:
 	*	(Task A 2)
 	*	(Task B 8)
 	*	(Task C 3)
+
 3.	Future Three:
 
 	*	(Task A 2)
@@ -164,11 +165,11 @@ For example:
 	*	Task C 3 0.3 10
 	*	Total = (25.4)
 
-#### Calculate the 95%, the 50%, and the 5% probability dates.
+#### Calculate the 95%, the 50%, and the 5% percentile for completion times
 
 Finally, use the Monte Carlo method to get different confidence probabilities for certain project completion dates.
 
-Let's assume that you've done a model with 20 simulations, with the total hours as follows:
+Let's assume that instead of 3, you had actually modeled 20 simulations, with the total hours as follows:
 
 1.	17
 2.	50
@@ -197,6 +198,6 @@ Let's assume that you've done a model with 20 simulations, with the total hours 
 
 #### Notes about getting more accurate predictions ####
 
-The more simulations you run, the more accurate the prediction. For one, outlier simulations will be blunted.
+The more simulations you run, the more accurate the prediction. However, the accuracy is extremely marginal after 100 simulations, and so you're just wasting CPU cycles running models bigger than that. Something to keep in mind.
 
 Further, the more tasks there are for each deadline, the more similar the total hours for all simulations will be, as the chance of a bunch of similarly leaning outlier estimations falling in the same simulation becomes lower and lower.
